@@ -27,7 +27,7 @@ process.stdin.on('end', _ => {
 	return string.trim();
 	});
 	// REVIEW: ví dụ dòng này có khoảng trắng thừa
-	main();    // REVIEW: ví dụ dòng này có khoảng trắng thừa
+	main();
 });
 
 function readLine() {
@@ -40,7 +40,6 @@ var parameterVariable = "Welcome to 10 Days of JavaScript!"
 function greeting(parameterVariable) {
 	console.log('Hello, World!');
 	console.log(parameterVariable);
-	// REVIEW: ở đây cách ra 1 dòng không cần thiết
 }
 
 
@@ -78,11 +77,8 @@ function performOperation(secondInteger, secondDecimal, secondString) {
 	const firstString = 'HackerRank ';
 
 	// REVIEW: giữa 2 đầu dấu "+" thêm 1 dấu cách. VD: `firstInteger + parseInt(...)`
-	console.log(firstInteger+parseInt(secondInteger))
-	console.log(firstDecimal+parseFloat(secondDecimal))
-	console.log(firstString+secondString)
-	// REVIEW: ở đây cách ra 1 dòng không cần thiết
+	console.log(firstInteger + parseInt(secondInteger))
+	console.log(firstDecimal + parseFloat(secondDecimal))
+	console.log(firstString + secondString)
 }
-// REVIEW: cuối 1 file nên có đúng 1 dòng trắng
-
 
