@@ -61,8 +61,8 @@ process.stdin.on('end', _ => {
 	inputString = inputString.trim().split('\n').map(string => {
 	return string.trim();
 	});
-	
-	main();    
+
+	main();
 });
 
 function readLine() {
@@ -71,9 +71,9 @@ function readLine() {
 
 function performOperation(secondInteger, secondDecimal, secondString) {
 	const firstInteger = 4;
-	
+
 	const firstDecimal = 4.0;
-	
+
 	const firstString = 'HackerRank ';
 
 	// REVIEW: giữa 2 đầu dấu "+" thêm 1 dấu cách. VD: `firstInteger + parseInt(...)`
