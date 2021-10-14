@@ -1,3 +1,11 @@
+-- REVIEW chung:
+/*
+- Nên dùng dấu ngoặc đơn ('some value') thay vì ngoặc kép ("some value")
+- Đặt alias cần rõ nghĩa hơn
+- Với dấu phẩy, phía trước không để dấu cách, phía sau để 1 dấu cách.
+VD: concat(name, '(', left(opccupation, 1), ')')
+*/
+
 -- Exe 20: The PADS
 
 -- + Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a
@@ -53,6 +61,25 @@
 
 -- Exe 23: New Companies
 
+-- REVIEW: ở đây nên dùng INNER JOIN
+/*
+SELECT 
+    c.company_code, 
+    c.founder, 
+    COUNT(DISTINCT lm.lead_manager_code), 
+    COUNT(DISTINCT sm.senior_manager_code), 
+    COUNT(DISTINCT m.manager_code), 
+    COUNT(DISTINCT e.employee_code)
+
+FROM Company c
+INNER JOIN Lead_Manager lm ON lm.company_code = c.company_code
+INNER JOIN Senior_Manager sm ON sm.lead_manager_code = lm.lead_manager_code
+INNER JOIN Manager m ON m.senior_manager_code = sm.senior_manager_code
+INNER JOIN Employee e ON e.manager_code = m.manager_code
+
+GROUP BY c.company_code, c.founder
+ORDER BY c.company_code
+*/
 
 	select c.company_code, c.founder, count(distinct lm.lead_manager_code), 
 	count(distinct sm.senior_manager_code), count(distinct m.manager_code), 

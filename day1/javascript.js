@@ -1,3 +1,9 @@
+// REVIEW chung:
+/**
+ * Vẫn còn nhiều khoảng trắng thừa
+ * Với các toán tử (+, -, *, /, v.v.), giữa 2 đầu vẫn chưa có dấu cách
+ */
+
 // Day 1: Arithmetic Operators
 	
 	'use strict';
@@ -68,7 +74,7 @@
 
 	function factorial(n){
 	    var result = 1;
-	    for (var i = n ; i > 0 ; i--){
+	    for (var i = n ; i > 0 ; i--){  // REVIEW: xóa dấu cách trước kí tự ";"
 		result *= i;
 	    }
 	    return result;
@@ -112,9 +118,10 @@
 	function main() {
 	    const PI = Math.PI;
 	    let r = readLine();
-	    console.log(PI*(Math.pow(r, 2 )))
+	    console.log(PI*(Math.pow(r, 2 ))) // REVIEW: giữa 2 đầu toán tử phải có dấu cách, thừa dấu cách sau số "2"
 	    console.log(2*PI*r)
 	    try {    
+		// REVIEW: code trong 1 block phải lùi vào 1 level, tương tự với block "catch"
 		PI = 0;
 		console.log(PI);
 	    } catch(error) {
