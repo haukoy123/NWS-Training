@@ -2,7 +2,7 @@
 
 function getGrade(score) {
     let grade;
-    if(score <= 5){
+    if(score <= 5){ // REVIEW: thêm dấu cách trước "(" và sau ")". "if (score <= 5) {"
         grade = 'F';
     }
     else if(score <= 10){
@@ -28,7 +28,7 @@ function getGrade(score) {
 
 function getLetter(s) {
     let letter;
-    const fc = s[0];
+    const fc = s[0]; // REVIEW: đặt tên biến rõ nghĩa hơn. VD: "firstChar"
     switch(true) {
         case 'aeiou'.includes(fc) :
             letter = 'A'
@@ -55,7 +55,7 @@ function getLetter(s) {
 
 function vowelsAndConsonants(s) {
     const vowel = 'aeiou'
-    for (let i of s){
+    for (let i of s){ // REVIEW: tương tự với if, thêm dấu cách sau ")". "for (let i of s) {"
         if (vowel.includes(i)){
             console.log(i);
         }
