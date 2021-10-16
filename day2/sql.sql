@@ -7,7 +7,17 @@
 -- d happens to equal the maximum value in Western Longitude (LONG_W in STATION).
 -- Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4 decimal places.
 
-select round(abs(max(lat_n) - min(lat_n)) + abs(max(long_w) - min(long_w)), 4)
+select
+    round(
+        abs(
+            max(lat_n) - min(lat_n)
+        )
+        +
+        abs(
+            max(long_w) - min(long_w)
+        ),
+        4
+    )
 from station
 
 
@@ -27,7 +37,7 @@ SELECT
             POWER(
                 MAX(long_w) - MIN(long_w),
                 2
-            ) 
+            )
             +
             POWER(
                 MAX(lat_n) - MIN(lat_n),
@@ -38,7 +48,21 @@ SELECT
     )
 FROM station
 */
-select round(sqrt(power(max(long_w) - min(long_w), 2) + power(max(lat_n) -min(lat_n), 2)), 4)
+select
+    round(
+        sqrt(
+            power(
+                max(long_w) - min(long_w),
+                2
+            )
+            +
+            power(
+                max(lat_n) - min(lat_n),
+                2
+            )
+        ),
+        4
+    )
 from station;
 
 
@@ -58,16 +82,24 @@ Về format:
     - "count( * )" không cần dấu cách ở 2 đầu dấu "*" -> "COUNT(*)"
 */
 with temporary_table_1 as (
-    select round(lat_n, 4) as dec_lat_n, ROW_NUMBER() over(ORDER BY lat_n) as rank_number
+    select
+        round(lat_n, 4) as dec_lat_n,
+        ROW_NUMBER() over (order by lat_n) as rank_number
     from station
     order by lat_n asc
 )
-, temporary_table_2  as (
-    select((count( * ) / 2) + 0.5) as total from station
+, temporary_table_2 as (
+    select
+        round(count(*) / 2), 0) as total
+    from station
 )
 
 select dec_lat_n from temporary_table_1
-where rank_number = (select total from temporary_table_2)
+where rank_number = (
+    select total
+    from temporary_table_2
+)
+
 
 
 -- Exe 39: Population Census
@@ -79,9 +111,9 @@ REVIEW: khi join nhiều bảng, thì những chỗ viết tên cột nên có t
 sửa thành "co.CONTINENT"
 */
 select sum(ci.population)
-from country co inner join city ci
-    on co.code = ci.countrycode
-where CONTINENT = 'Asia'
+from country co 
+    inner join city ci on co.code = ci.countrycode
+where co.CONTINENT = 'Asia'
 
 
 
@@ -89,15 +121,19 @@ where CONTINENT = 'Asia'
 -- Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
 
 select ci.name
-from country co inner join city ci
-    on co.code = ci.countrycode
-where CONTINENT = 'Africa'
+from country co
+    inner join city ci on co.code = ci.countrycode
+where co.CONTINENT = 'Africa'
 
 
 -- Exe 41: Average Population of Each Continent
 -- Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
 
-select co.continent, floor(avg(ci.population))
-from country co inner join city ci
-    on co.code = ci.countrycode
+select
+    co.continent,
+    floor(
+        avg(ci.population)
+    )
+from country co
+    inner join city ci on co.code = ci.countrycode
 group by co.continent;
