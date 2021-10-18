@@ -9,8 +9,8 @@ SELECT
     CASE
         WHEN G.GRADE < 8
         THEN NULL
-        ELSE NAME
-    END,
+        ELSE NAME  -- REVIEW: thêm tên bảng. VD: "S.NAME"
+    END,  -- REVIEW: nên thêm alias. VD: "AS NAME"
     G.GRADE,
     S.MARKS
 FROM STUDENTS S, GRADES G
