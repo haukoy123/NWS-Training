@@ -51,9 +51,9 @@ function reverseString(s) {
 
 function isPositive(a) {
     if (a > 0) {
-        return ('YES'); // REVIEW: ở đây chỉ cần "return 'YES';"
+        return 'YES'; // REVIEW: ở đây chỉ cần "return 'YES';"
     }
-    else if (a == 0) {  // REVIEW: nên dùng so sánh chặt (3 dấu "="), thay vì 2 dấu "=". Lý do: tránh bug ẩn
+    else if (a === 0) {  // REVIEW: nên dùng so sánh chặt (3 dấu "="), thay vì 2 dấu "=". Lý do: tránh bug ẩn
         throw Error('Zero Error');
     }
     else {
