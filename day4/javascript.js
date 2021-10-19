@@ -4,7 +4,7 @@ function Rectangle(a, b) {
     return {
         length: a,
         width: b,
-        perimeter: 2 * (a+b),
+        perimeter: 2 * (a+b), // REVIEW: thêm dấu cách ở 2 đầu dấu "+"
         area: a * b
     }
 }
@@ -32,7 +32,7 @@ class Polygon {
         this.sides = sides
     }
 
-    perimeter(){
+    perimeter(){  // REVIEW: thêm dấu cách giữa ")" và "{" => "perimeter() {"
         let sum = 0;
         for (let i of this.sides) {
             sum += i;
