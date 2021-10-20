@@ -27,11 +27,11 @@ class Square extends Rectangle {
  *  - Dùng let thì scope của biến là block, dễ kiểm soát hơn var
  */
 function sides(literals, ...expressions) {
-    let a = expressions[0];
-    let p = expressions[1];
-    var result = [];
-    result[0] = (p - Math.sqrt(p ** 2 - (16 * a))) / 4;
-    result[1] = (p + Math.sqrt(p ** 2 - (16 * a))) / 4;
+    const area = expressions[0];
+    const perimeter = expressions[1];
+    let result = [];
+    result[0] = (perimeter - Math.sqrt(perimeter ** 2 - (16 * area))) / 4;
+    result[1] = (perimeter + Math.sqrt(perimeter ** 2 - (16 * area))) / 4;
     return result.sort()
 }
 
@@ -53,8 +53,7 @@ function modifyArray(nums) {
  * const dayName = ["Sunday", ...]
  */
 function getDayName(dateString) {
-    let dayName;
-    dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     return dayName[new Date(dateString).getDay()];
 }
 
@@ -66,7 +65,7 @@ function getDayName(dateString) {
 
 function getMaxLessThanK(n, k) {
     let max = 0;
-    for (let i =1; i < n; i++) {  // REVIEW: thiếu dấu cách chỗ "let i = 1"
+    for (let i = 1; i < n; i++) {  // REVIEW: thiếu dấu cách chỗ "let i = 1"
         for (let j = i + 1; j <= n; j++) {
             if ((i & j) < k && (i & j) > max) {
                 max = i & j;
