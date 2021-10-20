@@ -13,7 +13,19 @@ class Square extends Rectangle {
 
 // Day 5: Template Literals
 
-
+/**
+ * REVIEW 1:
+ * Em nên đặt tên biến đầy đủ: "area", "perimeter" thay vì "a", "p"
+ * 
+ * REVIEW 2:
+ * Biến nào không thay đổi thì nên dùng `const`, nếu có thay đổi thì ưu tiên dùng `let` thay vì `var`:
+ * const a = ...
+ * const b = ...
+ * const result = []
+ * Lý do:
+ *  - Dùng const để tránh vô tình thay đổi giá trị của biến ở đâu đó, dẫn đến bug rất khó tìm
+ *  - Dùng let thì scope của biến là block, dễ kiểm soát hơn var
+ */
 function sides(literals, ...expressions) {
     let a = expressions[0];
     let p = expressions[1];
@@ -36,7 +48,10 @@ function modifyArray(nums) {
 
 // Day 6: JavaScript Dates
 
-
+/**
+ * REVIEW: ở đây có thể khai báo và gán giá trị cho `dayName` cùng 1 lúc;
+ * const dayName = ["Sunday", ...]
+ */
 function getDayName(dateString) {
     let dayName;
     dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -51,7 +66,7 @@ function getDayName(dateString) {
 
 function getMaxLessThanK(n, k) {
     let max = 0;
-    for (let i =1; i < n; i++) {
+    for (let i =1; i < n; i++) {  // REVIEW: thiếu dấu cách chỗ "let i = 1"
         for (let j = i + 1; j <= n; j++) {
             if ((i & j) < k && (i & j) > max) {
                 max = i & j;
@@ -59,4 +74,4 @@ function getMaxLessThanK(n, k) {
         }
     }
     return max;
-}
+}  // REVIEW: thiếu 1 dòng trắng cuối file
