@@ -1,5 +1,5 @@
 function btn5click() {
-    let temp = document.getElementById('btn1').innerText;
+    let temp = document.getElementById('btn1').innerText;  // REVIEW: nên dùng const
     document.getElementById('btn1').innerText = document.getElementById('btn4').innerText;
     document.getElementById('btn4').innerText = document.getElementById('btn7').innerText;
     document.getElementById('btn7').innerText = document.getElementById('btn8').innerText;
@@ -8,4 +8,4 @@ function btn5click() {
     document.getElementById('btn6').innerText = document.getElementById('btn3').innerText;
     document.getElementById('btn3').innerText = document.getElementById('btn2').innerText;
     document.getElementById('btn2').innerText = temp;
-}
+}  // REVIEW: thiếu dòng trắng cuối file

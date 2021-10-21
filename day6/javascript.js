@@ -1,4 +1,9 @@
 // Day 7: Regular Expressions I
+/**
+ * REVIEW:
+ * - Nên dùng const thay vì let
+ * - Một số lỗi format
+ */
 
 function regexVar() {
     let re = /^([aeiou]).+\1$/;

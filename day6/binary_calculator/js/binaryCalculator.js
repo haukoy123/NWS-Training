@@ -1,3 +1,9 @@
+/**
+ * REVIEW:
+ * - Tên hàm, biến trong JS nên để camelCase. VD: change_display -> changeDisplay
+ * - Một số chỗ em vẫn quên dấu cách giữa ")" và "{"
+ */
+
 let operation = "";
 
 function calculate() {
