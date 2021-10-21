@@ -28,16 +28,16 @@ function calculate() {
     change_display();
 }
 
-function cl(){
+function cl() {
     operation = "";
     change_display();
 }
 
 function key(k) {
     operation += k;
-    change_display();
+    changeDisplay();
 }
 
-function change_display(){
+function changeDisplay() {
     document.getElementById("res").innerHTML = operation;
 }

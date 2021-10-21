@@ -6,6 +6,6 @@
 
 function button_click(value){
     value = parseInt(value);
-    value +=1;
+    value ++;
     document.getElementById('btn').innerText= value;
 }
