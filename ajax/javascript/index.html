@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <link rel="stylesheet" href="css/css.css" type="text/css" />
+</head>
+
+<body>
+    <div id="input">
+        <table>
+            <tbody>
+                <tr>
+                    <th colspan="2">Account</th>
+                    <th colspan="4">Staff Information</th>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Username:</label>
+                    </th>
+                    <td>
+                        <input name="username" type="text" class="account">
+                    </td>
+                    <th>
+                        <label>Name:</label>
+                    </th>
+                    <td>
+                        <input name="name" type="text" class="infor">
+                    </td>
+                    <th>
+                        <label>Gender:</label>
+                    </th>
+                    <td>
+                        <input type="radio" name="gender" value="MALE" class="infor"> Male
+                        <input type="radio" name="gender" value="FEMALE" class="infor"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Password:</label>
+                    </th>
+                    <td>
+                        <input name="password" type="text" class="account">
+                    </td>
+                    <th>
+                        <label>Phone:</label>
+                    </th>
+                    <td>
+                        <input name="phone" type="text" class="infor">
+                    </td>
+                    <th>
+                        <label>Date of birth:</label>
+                    </th>
+                    <td>
+                        <input name="date_birth" type="date" class="infor">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Email:</label>
+                    </th>
+                    <td>
+                        <input id="email" name="email" type="text" class="account">
+                    </td>
+                    <th>
+                        <label>Address:</label>
+                    </th>
+                    <td>
+                        <input name="address" type="text" class="infor">
+                    </td>
+                    <th>
+                        <label>Team:</label>
+                    </th>
+                    <td>
+                        <input name="team" type="text" class="infor">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <button id="btn" onclick="createEmployees()">Create</button>
+            <button onclick="updateEmployees()">Update</button>
+        </p>
+    </div>
+    <div>
+        <table>
+            <tbody id="empl">
+                <!-- <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Team</th>
+                    <th>
+                        <input type="submit" value="delete" onclick="deleteEmployees(this)">
+                    </th>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- </form> -->
+    <script src="js/js.js" type="text/javascript"></script>
+</body>
+
+</html>
+
