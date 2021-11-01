@@ -1,11 +1,15 @@
 # 1. if else
 
 if __name__ == '__main__':
+    # try:
+    #     n = int(input().strip())
+    # except (ValueError, TypeError):
+    #     print('input is not integer.')
     n = int(input().strip())
-    if n%2 == 1:
+    if n % 2 == 1:
         print('Weird')
-    elif n%2 == 0:
-        if n in range(2,6) or n > 20:
+    elif n % 2 == 0:
+        if n in range(2, 6) or n > 20:
             print('Not Weird')
         else:
             print('Weird')
@@ -17,9 +21,9 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     a = int(input())
     b = int(input())
-    print(a+b)
-    print(a-b)
-    print(a*b)
+    print(a + b)
+    print(a - b)
+    print(a * b)
 
 
 
@@ -28,8 +32,8 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     a = int(input())
     b = int(input())
-    print(a//b)
-    print(a/b)
+    print(a // b)
+    print(a / b)
 
 
 
@@ -38,14 +42,22 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     n = int(input())
     for i in range(n):
-        print(i**2)
+        print(i ** 2)
 
 
 # 5. Write a function
 
 def is_leap(year):
+    # return (
+    #     year % 4 == 0 and
+    #     (
+    #         year % 400 == 0 or
+    #         year % 100 != 0
+    #     )
+    # )
+
     leap = False
-    if year % 4==0 and (year % 400 == 0 or year % 100!=0):
+    if year % 4 == 0 and (year % 400 == 0 or year % 100 != 0):
         leap = True
     return leap
 
@@ -68,6 +80,27 @@ if __name__ == '__main__':
     y = int(input())
     z = int(input())
     n = int(input())
+
+    # d = {
+    #     'a': [1, 2, 3],
+    #     'b': [4, 5, 6]
+    # }
+    # x = [i for k in d for i in d[k]]
+
+    # x = [
+    #     i for i in range(10) 
+    #     if i % 2 == 0
+    # ]
+
+    # print (
+    #     [
+    #         [a, b, c] 
+    #         for a in range(0, x + 1) 
+    #         for b in range(0 , y + 1) 
+    #         for c in range(0, z + 1) 
+    #         if a + b + c != n 
+    #     ]
+    # )
 
     list1 = []
     for i in range(x+1):
@@ -112,7 +145,11 @@ if __name__ == '__main__':
     min_score = min(arr, key = lambda x: x[1])
     arr_copy = arr.copy()
     min_score = min(arr, key = lambda x: x[1])
-    [arr_copy.remove(i) for i in arr if i[1] == min_score[1]]
+    [
+        arr_copy.remove(i) 
+        for i in arr 
+        if i[1] == min_score[1]
+    ]
     min_score = min(arr_copy, key = lambda x: x[1])
     arr_copy.sort(key = lambda x: x[0])
     [print(i[0]) for i in arr_copy if i[1] == min_score[1]]
@@ -186,8 +223,10 @@ def swap_case(s):
 
 # 14. Merge the Tools
 def merge_the_tools(string, k):
-    for i in range(int(len(string)/k)):
-        arr = string[(i*k):((i+1)*k)]
+    for i in range(int(len(string) / k)):
+        arr = string[
+            (i * k) : ((i+1) * k)
+        ]
         unique = []
         for i in arr:
             if i not in unique:
@@ -200,7 +239,23 @@ from datetime import datetime
 def time_delta(t1, t2):
     first = datetime.strptime(t1,'%a %d %b %Y %H:%M:%S %z')
     second = datetime.strptime(t2,'%a %d %b %Y %H:%M:%S %z')
-    return str(abs(int((first-second).total_seconds())))
+
+    # delta = first - second
+    # delta_seconds = int(delta.total_seconds())
+    # delta_seconds_abs = abs(delta_seconds)
+
+    # return str(delta_seconds_abs)
+    # return '{0}'.format(delta_seconds_abs)
+    # return '%d' % delta_seconds_abs
+    # return f'{delta_seconds_abs}'
+
+    return str(
+        abs(
+            int(
+                (first-second).total_seconds()
+            )
+        )
+    )
 
 
 # 16. String Split and Join
