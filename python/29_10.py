@@ -1,5 +1,34 @@
 # 18. Mutations
 
+"""
+Mutable / immutable:
+- Mutable: list, dict.
+    l1 = [1, 2, 3]
+    l2 = l1  # pass by reference
+    l1.append(4)
+    l1[2] = 333
+    print(l2) -> [1, 2, 333, 4]
+
+    d1 = {'a': 1, 'b': 2}
+    d2 = d1
+    d2['c'] = 3
+    print(d1) -> {'a': 1, 'b': 2, 'c': 3}
+
+- Immutable: tuple, str, int, v.v.
+    t1 = (1, 2, 3)
+    t1[1] = 'aaa' -> exception
+    t1 = (1,)
+
+    x = 'hello'
+    y = x  # pass by value
+    x = 'internet'
+    print(y) -> 'hello'
+
+    x = 'hello'
+    x = x.upper()
+    print(x) -> 'HELLO'
+"""
+
 def mutate_string(string, position, character):
     l = list(string)
     l[position] = character
@@ -25,13 +54,15 @@ if __name__ == '__main__':
     print(any([char.islower() for char in string]))
     print(any([char.isupper() for char in string]))
 
+    all(char.isalnum() for char in string)
+
 
 # 21. Text Alignment
 
 thickness = int(input())
 char = 'H'
 
-    # Top Cone
+# Top Cone
 height = thickness
 for i in range(height):
     left_cone = (char * i).rjust(thickness - 1)
@@ -121,7 +152,8 @@ print(sum(money))
 # 26. itertools.permutations(iterable[, r])
 from itertools import permutations
 string, size = input().split()
-perm = list(permutations(sorted(string), int(size)))
-for i in range(len(perm)):
-    perm[i] = ''.join(perm[i])
-[print(i) for i in perm]
+perms = list(permutations(sorted(string), int(size)))
+for i in range(len(perms)):
+    perms[i] = ''.join(perms[i])
+[print(i) for i in perms]
+

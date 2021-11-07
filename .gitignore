@@ -1,0 +1,3 @@
+Django/mysite/.venv
+Django/mysite/__pycache__
+*.sqlite3
