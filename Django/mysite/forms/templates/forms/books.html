@@ -1,0 +1,8 @@
+<form action="{% url 'form:books' %}" method="post">
+    {% csrf_token %}
+    <p>{{ form.name.label }}</p>
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+</form>

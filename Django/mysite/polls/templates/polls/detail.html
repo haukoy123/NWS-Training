@@ -9,7 +9,7 @@
 {% csrf_token %}
 <fieldset>
     <legend>
-        <h1>{{ question.question_text }}</h1>
+        <h1>{{ question }}</h1>
     </legend>
     {% if error_message %}
     <p>
@@ -18,7 +18,7 @@
     {% endif %}
     {% for choice in question.choice_set.all %}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}"></label>
+        <label for="choice{{ forloop.counter }}"> {{ choice }}</label>
         <br>
     {% endfor %}
 </fieldset>

@@ -6,26 +6,56 @@ from django.urls import reverse
 from .models import Choice, Question
 from django.template import loader, TemplateDoesNotExist
 from django.views import generic
+from django.utils import timezone
 
 
 
 class IndexView(generic.ListView):
+    model = Question
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
-    # abc = Question.objects.order_by('-pub_date')[:5]
 
     # def get_context_data(self):
-
+    #     print('hello')
     #     return self.abc
 
     def get_queryset(self):
-        """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+        print('hello')
+        return Question.objects.filter(
+            pub_date__lte=timezone.now()
+        ).order_by('-pub_date')[:5]
+            
 
 
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
+    # context_object_name = 'data'
+
+    def get_queryset(self):
+        return Question.objects.filter(pub_date__lte=timezone.now())
+
+    # def get_object(self, queryset=None):
+    #     obj = Question.objects.get(pk=self.kwargs['pk'])
+    #     print('hello123')
+    #     return obj
+
+
+
+    def get_context_data(self, **kwargs):
+        print('hello')
+        context = {}
+        if self.object:
+            context['object'] = self.object
+            context_object_name = self.get_context_object_name(self.object)
+            if context_object_name:
+                context[context_object_name] = self.object
+        context.update(kwargs)
+        # b = context
+        # a = super().get_context_data(**context)
+        context.setdefault('view', self)
+        print(context)
+        return context
 
 
 class ResultsView(generic.DetailView):
