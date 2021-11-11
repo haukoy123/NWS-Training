@@ -1,0 +1,23 @@
+{% if form %}
+    {% for book in form %}
+        <p>
+            <label>STT: {{ forloop.counter }}</label>
+            <br>
+            <span>Name: {{book.name}}</span>
+            <br>
+            {% for author in book.authors.all %}
+                <span>Author {{ forloop.counter }}: {{ author.name }}</span>
+                <br>
+                <!-- {{ forloop.parentloop }} -->
+            {% endfor %}
+        </p>
+    {% endfor %}
+{% else %}
+    <span>Không có bản ghi</span>
+{% endif %}
+<p>
+    <a href="{% url 'form:books' %}">Add book</a>
+</p>
+<p>
+    <a href="{% url 'form:authors' %}">Add author</a>
+</p>

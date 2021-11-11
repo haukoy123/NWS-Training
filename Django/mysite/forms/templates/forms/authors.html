@@ -1,0 +1,10 @@
+<form action="{% url 'form:authors' %}" method="post">
+    {% csrf_token  %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <p>
+        <a href="{% url 'form:books' %}">Add book</a>
+    </p>
+    <input type="submit" value="Submit">
+</form>

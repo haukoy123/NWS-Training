@@ -1,8 +1,21 @@
 <form action="{% url 'form:books' %}" method="post">
     {% csrf_token %}
-    <p>{{ form.name.label }}</p>
+    <!-- <p>{{ form.name.label }}</p> -->
     <table>
         {{ form.as_table }}
     </table>
+    <div>
+        <!-- <label for="id_name"> name </label> -->
+        {{ form.name }}
+        <br>
+        {{ form.name.label_tag }}
+        <br>
+        
+    </div>
+    <br>
+    <p>
+        <a href="{% url 'form:authors' %}">Add author</a>
+    </p>
+    
     <input type="submit" value="Submit">
 </form>
