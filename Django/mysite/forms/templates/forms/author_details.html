@@ -1,0 +1,14 @@
+<p><span>Name: {{ form.name }}</span></p>
+<p><span>Title: {{ form.title }}</span></p>
+<p>
+    <span>Date of birth: <input type="date" value="{{ form.birth_date|date:'Y-m-d' }}" disabled></span>
+<p>
+
+<a href="{% url 'form:update_author' form.pk %}">
+    <input type="submit" value="Update">
+</a>
+
+<form action="{% url 'form:del_author' form.pk %}" method="POST">
+    {% csrf_token  %}
+    <input type="submit" value="Delete">
+</form>
